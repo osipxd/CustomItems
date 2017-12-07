@@ -52,20 +52,16 @@ class CustomItems {
     }
 
     @Inject
-    lateinit var plugin: PluginContainer
+    private lateinit var plugin: PluginContainer
 
     @Inject @DefaultConfig(sharedRoot = true)
-    lateinit var config: Path
+    private lateinit var config: Path
 
     private val repository by lazy { ItemsRepository(config, plugin) }
 
     @Listener
     fun onInit(event: GameInitializationEvent) {
-        this.initPlugin()
-    }
-
-    private fun initPlugin() {
-        repository.loadItems()
+        this.reloadConfig()
         this.registerCommands()
     }
 
@@ -94,9 +90,13 @@ class CustomItems {
     }
 
     private fun reload(src: CommandSource, args: CommandContext): CommandResult {
-        initPlugin()
+        reloadConfig()
         src.sendMessage(Text.of("Plugin successfully reloaded!"))
         return CommandResult.success()
+    }
+
+    private fun reloadConfig() {
+        repository.loadItems()
     }
 
     private fun giveItem(src: CommandSource, args: CommandContext): CommandResult {
