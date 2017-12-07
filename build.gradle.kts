@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "ru.endlesscode"
-version = "0.0.1"
+version = "0.0.2"
 description = "Simple plugin for creating items with custom lore"
 
 repositories {
