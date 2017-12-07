@@ -71,12 +71,13 @@ class CustomItems {
                 .executor(::reload)
                 .build()
 
+        val items = repository.items
         val getCommand = CommandSpec.builder()
                 .description(Text.of("Give item to player"))
                 .executor(::giveItem)
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.playerOrSource(Text.of(ARG_PLAYER))),
-                        GenericArguments.choices(Text.of(ARG_ITEM), repository.items)
+                        GenericArguments.choices(Text.of(ARG_ITEM), { items.keys }, { items[it] })
                 ).build()
 
         val pluginCommand = CommandSpec.builder()
