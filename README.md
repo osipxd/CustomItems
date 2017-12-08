@@ -6,15 +6,15 @@ Simple Sponge plugin for creating  items with custom lore and name
 - Used Kotlin Build Script
 - Used Commands API and Configurations API from Sponge
 
-### Usage
+## Usage
 Plugin is very simple in usage. You just should configure and add items to 
 config and reload plugin. Then you free to give these items to any players.
 
 Give item to Notch: `/ci give Notch testItem` \
 Give item to itself: `/ci give testItem`
 
-#### Config format
-```hocon
+### Config format
+```scala
 testItem { // This ID will be used for giving item
   // Required
   name: "&6&lEpic &m&8Sword&r &4&lSWORD" 
@@ -44,7 +44,7 @@ testItem { // This ID will be used for giving item
 
 ```
 
-#### Commands 
+### Commands 
 **Aliases:** `customitems`, `ci` \
 _`()` - optional, `[]` - required_
 
@@ -53,5 +53,5 @@ _`()` - optional, `[]` - required_
 
 _NOTE: You can use 'Tab' to quickly select needed item id or username_
 
-#### Permissions
+### Permissions
 `ru.endlesscode.customitems.admin` - Access to all commands
