@@ -36,15 +36,9 @@ class TextureImpl(
 ) : Texture {
 
     companion object {
-        fun parse(value: String): TextureImpl {
-            val (type, meta) = if (':' in value) {
-                value.split(':', limit = 2)
-            } else {
-                listOf(value, "-1")
-            }
-
+        fun create(type: String, meta: Int): TextureImpl {
             val itemType = Sponge.getRegistry().getType<ItemType>(type)
-            return TextureImpl(itemType.get(), meta.toInt())
+            return TextureImpl(itemType.get(), meta)
         }
     }
 

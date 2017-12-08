@@ -42,7 +42,7 @@ data class ItemImpl(
 
     constructor(config: ItemConfig) : this(
             name = colorized(config.name),
-            texture = TextureImpl.parse(config.texture),
+            texture = TextureImpl.create(config.texture, config.meta),
             unbreakable = config.unbreakable,
             lore = config.lore.map(::colorized)
     )
