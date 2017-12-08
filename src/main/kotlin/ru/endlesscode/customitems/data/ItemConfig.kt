@@ -38,12 +38,15 @@ class ItemConfig {
     lateinit var texture: String
 
     @Setting
+    var meta: Int = -1
+
+    @Setting
     var unbreakable: Boolean = true
 
     @Setting
     var lore: List<String> = emptyList()
 
     override fun toString(): String =
-            "ItemConfig(name='$name', texture='$texture', unbreakable=$unbreakable, lore=$lore)"
+            "ItemConfig(name='$name', texture='$texture', meta=$meta, unbreakable=$unbreakable, lore=$lore)"
 
 }
